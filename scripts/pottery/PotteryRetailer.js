@@ -6,11 +6,11 @@
 * The final products is then pushed into the potteryToSell array if it is deemed worth selling (ie, not cracked).
 */
 
-import { Pottery } from "./Potery.js";
+import { potteryObjectMaker } from "./potteryObjectMaker.js";
 import { Kiln } from "./Kiln.js";
 
 const CreatePottery = (potteryObject) => {
-    let unfinishedPotteryObject = Pottery(potteryObject[0]);
+    let unfinishedPotteryObject = potteryObjectMaker(potteryObject[0]);
     let finishedPotteryObject = Kiln(unfinishedPotteryObject, potteryObject[1])
 
     if (finishedPotteryObject.cracked === false) {
@@ -26,7 +26,7 @@ const CreatePottery = (potteryObject) => {
     }
 }
 
-let potteryToSell = []
+export let potteryToSell = []
 
 const PotterCraftsman = (potteryIngredientsArray) => {
     potteryIngredientsArray.map(pi => CreatePottery(pi)).filter(fpi => {
