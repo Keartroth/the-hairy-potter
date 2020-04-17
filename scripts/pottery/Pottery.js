@@ -1,18 +1,26 @@
 /*
-* This module holds a function that represents the creation of a piece of pottery, it accepts an array of pottery
-* ingredients and adds properties and values to the pottery object dependant upon the value of the ingredients.
-* It is exported to PotteryRetailer.js where it is invoked.
+* This module holds a function that creates an HTML string representation of a piece of pottery, it accepts
+* a pottery object. It is exported to PotteryList.js where it is invoked.
 */
 
-let integer = 0
+import { PotterySellButton } from "./PotterySellButton.js"
+import { potteryToSell } from "./PotteryRetailer.js";
 
-export const Pottery = (potteryIngredientArray) => {
-    integer = integer+1;
-    const potteryObject ={
-        id: integer,
-        shape: potteryIngredientArray[0],
-        weight: potteryIngredientArray[1],
-        height: potteryIngredientArray[2]
-    }
-    return potteryObject;
+export const Pottery = (potteryObject) => {
+    return`
+        <section id="potteryItem--${potteryObject.id}">
+            <div class="shapePriceContainer">Shape: ${potteryObject.shape}  Price: $${potteryObject.price}</div>
+            <div class="heightWeightContainer">Height: ${potteryObject.height}  Weight: ${potteryObject.wieght}</div>
+            ${PotterySellButton(potteryObject)}
+        </section>
+    `
 }
+
+const eventHub = document.querySelector("#container");
+
+eventHub.addEventListener("sellItemClicked", customEvent => {
+    const itemSold = parseInt(customEvent.detail.potteryItemSold)
+    const soldPotteryObject = potteryToSell.find(po => po.id === itemSold);
+
+    alert(`You sold a ${soldPotteryObject.shape} for $${soldPotteryObject.price}`);
+})
