@@ -4,13 +4,15 @@
 * It is exported to PotteryRetailer.js where it is invoked.
 */
 
-export const Kiln = (potteryObject, temperature) => {
-    if (temperature > 2200) {
+export const Kiln = (potteryObject) => {
+    if (potteryObject.temperature > 2200) {
         potteryObject.fired = true;
         potteryObject.cracked = true;
+        delete potteryObject.temperature
     } else {
         potteryObject.fired = true;
         potteryObject.cracked = false;
+        delete potteryObject.temperature
     }
     return potteryObject;
 }
