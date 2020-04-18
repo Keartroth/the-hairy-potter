@@ -1,7 +1,3 @@
-import { PotteryRetailer } from "./pottery/PotteryRetailer.js"
-import { PotteryList } from "./pottery/PotteryList.js"
+import { PotterySupplier } from "./pottery/PotterySupplier.js"
 
-console.log("Welcome to the main module")
-
-PotteryRetailer()
-PotteryList()
+PotterySupplier()

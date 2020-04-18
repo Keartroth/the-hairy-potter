@@ -10,8 +10,9 @@ export const PotterySellButton = (potteryObject) => {
 }
 
 const eventHub = document.querySelector("#container");
+const contentTarget = document.querySelector("#inventory");
 
-eventHub.addEventListener("click", clickEvent => {
+contentTarget.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("sellPottery--")) {
         const itemSold = clickEvent.target.id.split("--")[1]
         const saleInitiated = new CustomEvent("sellItemClicked", {

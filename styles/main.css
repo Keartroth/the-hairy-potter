@@ -1,19 +1,17 @@
-@import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
-
-/*Typography
---------------------------------------------------------------*/
-body,
-button,
-input,
-select,
-textarea {
-	color: #404040;
-	font-family: "Comfortaa", Arial, sans-serif;
-	font-size: 14px;
-	line-height: 1.5;
+.hidden {
+	display: none;
 }
 
-h1,h2,h3,h4,h5,h6 {
-  font-family: "Patua One", serif;
-  letter-spacing: 2px;
+#inventory {
+	display: flex;
+	flex-wrap: wrap;
+	text-align: center;
+	padding: 2em;
+}
+
+[id^=potteryItem--] {
+	border: 2px solid black;
+	margin: 2em;
+	padding: 1em;
+	min-width: 250px;
 }

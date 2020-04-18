@@ -1,12 +1,11 @@
-import { potteryToSell } from "./PotteryRetailer.js";
 import { Pottery } from "./Pottery.js";
 
-const contentTartget = document.querySelector("#container");
+const contentTartget = document.querySelector("#inventory");
 
 const render = (potteryObject) => {
     return Pottery(potteryObject)
 }
 
-export const PotteryList = () => {
+export const PotteryList = (potteryToSell) => {
     contentTartget.innerHTML += potteryToSell.map(po => render(po)).join("")
 }
