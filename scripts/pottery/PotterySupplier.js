@@ -63,7 +63,7 @@ export const PotterySupplier = () => {
             ingredientObject.height = tempObject.heightArray[randomIndex];
             randomIndex = randomIndexGenerator();
             ingredientObject.temperature = tempObject.temperatureArray[randomIndex];
-            ingredientObject.id = i;
+            ingredientObject.id = i +1;
 
             ingredients.push(ingredientObject)
         }

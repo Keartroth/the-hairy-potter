@@ -29,6 +29,7 @@ const CreatePottery = (potteryIngredientObject) => {
 }
 
 export const PotteryCraftsman = (finishedPotteryIngredients) => {
+    potteryToSell = [];
     finishedPotteryIngredients.map(pi => CreatePottery(pi)).filter(fpi => {
         if (fpi !== false) {
             potteryToSell.push(fpi);
