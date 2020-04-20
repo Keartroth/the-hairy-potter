@@ -1,11 +1,12 @@
 import { Pottery } from "./Pottery.js";
+import { RestockInventoryButton } from "./RestockButton.js";
 
 const contentTartget = document.querySelector("#inventory");
 
-const render = (potteryObject) => {
-    return Pottery(potteryObject)
+const render = (potteryToSell) => {
+    return potteryToSell.map(po => Pottery(po)).join("")
 }
 
 export const PotteryList = (potteryToSell) => {
-    contentTartget.innerHTML += potteryToSell.map(po => render(po)).join("")
+    contentTartget.innerHTML = render(potteryToSell)
 }
